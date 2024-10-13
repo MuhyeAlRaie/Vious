@@ -86,7 +86,9 @@ h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
-
+span{
+  color: #ef0007;
+}
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -143,11 +145,11 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: #242424;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
+  --background-color: #ffffff;
+  --default-color: #3d3d3d;
+  --heading-color: #3d3d3d;
   --contrast-color: #ffffff;
-  color: var(--default-color);
+  color: #3d3d3d;
   transition: all 0.5s;
   z-index: 997;
   background-color: var(--background-color);
@@ -246,7 +248,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    color: #3d3d3d;
     padding: 20px 15px;
     margin-left: 2px;
     font-size: 16px;
@@ -271,7 +273,7 @@ h6 {
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--contrast-color);
-    background-color: var(--nav-hover-color);
+    background-color: #ef0007;
   }
 
   .navmenu .dropdown ul {
