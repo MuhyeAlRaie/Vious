@@ -1125,7 +1125,7 @@ section,
 .services .service-item {
   background-color: var(--surface-color);
   text-align: center;
-  border: 30px solid color-mix(in srgb, #ef0007, transparent 0%);
+  border: 30px Double color-mix(in srgb, #ef0007, transparent 0%);
   border-radius: 50%;
   padding: 80px 20px;
   transition: all ease-in-out 0.3s;
@@ -1178,8 +1178,8 @@ section,
 }
 
 .services .service-item:hover {
-  background: #ef0007;
-  border-color: #3d3d3d;
+  background: #adadad;
+  border-color: #ef0007;
 }
 
 .services .service-item:hover .icon {
