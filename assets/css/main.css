@@ -240,7 +240,12 @@ h2 span{
     list-style: none;
     align-items: center;
   }
-
+.navmenu span {
+  color: #3d3d3d;
+}
+.navmenu span:hover{
+  color: #f6f6f6;
+}
   .navmenu li {
     position: relative;
   }
@@ -1762,3 +1767,8 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# 
+--------------------------------------------------------------*/
+
