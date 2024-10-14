@@ -978,78 +978,34 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about .content h3 {
-  font-size: 2rem;
-  font-weight: 700;
-}
 
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  padding-bottom: 10px;
-}
-
-.about .content ul i {
-  font-size: 1.25rem;
-  margin-right: 4px;
-  color: var(--accent-color);
-}
-
-.about .content p:last-child {
-  margin-bottom: 0;
-}
-
-.about .content .read-more {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  font-family: var(--heading-font);
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 12px 30px;
-  transition: 0.3s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about .content .read-more i {
-  font-size: 18px;
-  margin-left: 5px;
-  line-height: 0;
-  transition: 0.3s;
-}
-
-.about .content .read-more:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-  padding-right: 25px;
-}
-
-.about .content .read-more:hover i {
-  margin-left: 10px;
-}
-
-.about .Background-about{
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -auto;
-}
-
-#mision {
-
-  z-index: 2 ;
-}
 
 /*--------------------------------------------------------------
 # Cards Section
 --------------------------------------------------------------*/
+.cards {
+  position: relative; /* This is necessary for the absolute positioning of the background */
+  overflow: hidden; /* Prevents content overflow */
+}
+
+.Background-strati {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure it's behind other content */
+  display: flex; /* To center the image */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.Background-strati img {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the section */
+}
+
 .cards .card {
   background-color: var(--surface-color);
   color: var(--default-color);
@@ -1057,7 +1013,7 @@ section,
   padding: 40px;
   margin: -1px;
   border-radius: 0;
-  z-index: 2;
+  z-index: 2; /* Ensure cards are above the background */
 }
 
 .cards .card span {
@@ -1082,25 +1038,6 @@ section,
   padding: 0;
 }
 
- .Background-strati{
-  position: absolute;
-  inset: 2;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: auto;
-}
-
-.Background-stratigg{
-  position: absolute;
-  inset: 2;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
 
 /*--------------------------------------------------------------
 # Clients Section
@@ -1128,82 +1065,85 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-.services .service-item {
-  background-color: var(--surface-color);
-  text-align: center;
-  border: 30px double color-mix(in srgb, #ef0007, transparent 0%);
-  border-radius: 50%;
-  padding: 80px 20px;
-  transition: all ease-in-out 0.3s;
-  height: 100%;
-  
+.flip-circle {
+  color: #ef0007;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Maintain a square shape */
+  perspective: 1000px;
+  border-color: #ef0007;
+border-radius: 50%;
+border: 5px  solid ;
 }
 
-.services .service-item .icon {
-  margin: 0 auto;
-  width: 64px;
-  height: 64px;
-  background: #ef0007;
-  border-radius: 4px;
+.flip-circle .circle-front,
+.flip-circle .circle-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  transition: transform 0.6s;
+}
+
+.flip-circle .circle-front {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  transition: 0.3s;
-  transform-style: preserve-3d;
+  text-align: center;
+  background-color: #f8f9fa;
 }
 
-.services .service-item .icon i {
-  color: var(--contrast-color);
-  font-size: 28px;
-  transition: ease-in-out 0.3s;
-}
-
-.services .service-item .icon::before {
-  position: absolute;
-  content: "";
-  left: -8px;
-  top: -8px;
-  height: 100%;
+.flip-circle .circle-img {
   width: 100%;
-  background: color-mix(in srgb, #ef0007, transparent 80%);
-  border-radius: 5px;
-  transition: all 0.3s ease-out 0s;
-  transform: translateZ(-1px);
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: brightness(0.5);}
+
+.flip-circle .circle-text {
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  z-index: 2;
 }
 
-.services .service-item h3 {
-  font-weight: 700;
-  margin: 10px 0 15px 0;
-  font-size: 16px;
+.flip-circle .circle-back {
+  background-color: #ef0008e8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 50%;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
 }
 
-.services .service-item p {
-  line-height: 24px;
-  font-size: 12px;
-  margin-bottom: 0;
+.flip-circle .circle-back p {
+  margin: 0;
+  font-size: 1rem;
 }
 
-.services .service-item:hover {
-  background: #ef0007;
+.flip-circle:hover .circle-front {
+  transform: rotateY(180deg);
+  
+}
+
+.flip-circle:hover .circle-back {
+  transform: rotateY(0deg);
+}
+.flip-circle:hover {
+  color: #3d3d3d;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Maintain a square shape */
+  perspective: 1000px;
   border-color: #3d3d3d;
-}
-
-.services .service-item:hover .icon {
-  background: var(--surface-color);
-}
-
-.services .service-item:hover .icon i {
-  color: #ef0007;
-}
-
-.services .service-item:hover .icon::before {
-  background: color-mix(in srgb, #ef0007, transparent 70%);
-}
-
-.services .service-item:hover h3,
-.services .service-item:hover p {
-  color: var(--contrast-color);
+border-radius: 50%;
+border: 5px groove;
 }
 
 
@@ -1773,86 +1713,7 @@ section,
 # 
 --------------------------------------------------------------*/
 
-.flip-circle {
-  color: #ef0007;
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%; /* Maintain a square shape */
-  perspective: 1000px;
-  border-color: #ef0007;
-border-radius: 50%;
-border: 5px  solid ;
-}
 
-.flip-circle .circle-front,
-.flip-circle .circle-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 50%;
-  transition: transform 0.6s;
-}
-
-.flip-circle .circle-front {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: #f8f9fa;
-}
-
-.flip-circle .circle-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  filter: brightness(0.5);}
-
-.flip-circle .circle-text {
-  position: absolute;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.5rem;
-  z-index: 2;
-}
-
-.flip-circle .circle-back {
-  background-color: #ef0008e8;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  border-radius: 50%;
-  transform: rotateY(180deg);
-  box-sizing: border-box;
-}
-
-.flip-circle .circle-back p {
-  margin: 0;
-  font-size: 1rem;
-}
-
-.flip-circle:hover .circle-front {
-  transform: rotateY(180deg);
-  
-}
-
-.flip-circle:hover .circle-back {
-  transform: rotateY(0deg);
-}
-.flip-circle:hover {
-  color: #3d3d3d;
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%; /* Maintain a square shape */
-  perspective: 1000px;
-  border-color: #3d3d3d;
-border-radius: 50%;
-border: 5px groove;
-}
 
 
 /* 
