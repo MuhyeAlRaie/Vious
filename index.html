@@ -130,25 +130,25 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+   <!-- Hero Section -->
+<section id="hero" class="hero section dark-background">
+  <video autoplay muted loop playsinline data-aos="fade-in" class="background-video">
+    <source src="assets/img/VideoBg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-      <video autoplay muted loop playsinline data-aos="fade-in" class="background-video">
-        <source src="assets\img\VideoBg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row justify-content-start">
-          <div class="col-lg-8">
-            <h2><span>Welcome to</span> vious <span>.</span></h2>
-            <p>VIOUS is committed to driving<span> DIGITAL TRANSFORMATION</span> and Creating a Smarter, More Connected World.</p>
-            <!-- <a href="#about" class="btn-get-started">Get Started</a> -->
-          </div>
-        </div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row justify-content-start">
+      <div class="col-lg-8">
+        <h2><span>Welcome to</span> vious <span>.</span></h2>
+        <!-- Animated Paragraph -->
+        <p class="animated-paragraph">
+          <span id="changing-text">Driving DIGITAL TRANSFORMATION</span>
+        </p>
       </div>
-    
-    </section><!-- /Hero Section -->
+    </div>
+  </div>
+</section>
 
 
 <!-- Break Section with Video Background -->
@@ -672,6 +672,27 @@ increasingly digital world.
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const texts = [
+    "Driving DIGITAL TRANSFORMATION",
+    "Creating a Smarter World",
+    "Empowering Innovation",
+    "Redefining Connectivity"
+  ];
+  let currentIndex = 0;
+  const textElement = document.getElementById("changing-text");
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % texts.length;
+    textElement.style.opacity = 0;
+    setTimeout(() => {
+      textElement.innerText = texts[currentIndex];
+      textElement.style.opacity = 1;
+    }, 500); // Wait for the fade-out animation to finish
+  }, 4000); // Change every 4 seconds
+});
+  </script>
 
 </body>
 
